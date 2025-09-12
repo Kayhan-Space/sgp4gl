@@ -1,0 +1,67 @@
+{
+  "name": "sgp4.gl",
+  "version": "0.1.1-beta",
+  "description": "High-performance SGP4 GPU/WebGPU/WebGL WASM wrapper.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./browser": {
+      "default": "./dist/browser/sgp4.iife.js"
+    },
+    "./wasm": {
+      "default": "./pkg/sgp4_bg.wasm"
+    }
+  },
+  "files": [
+    "dist/",
+    "pkg/sgp4.js",
+    "pkg/sgp4.d.ts",
+    "pkg/sgp4_bg.wasm",
+    "pkg/sgp4_bg.wasm.d.ts",
+    "README.md",
+    "LICENSE",
+    "demo/"
+  ],
+  "scripts": {
+    "build": "vite build && vite build --config vite.config.ts --mode iife",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "demo": "serve ."
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.1",
+    "rimraf": "^5.0.5",
+    "serve": "^14.2.5",
+    "typescript": "^5.6.2",
+    "vite": "^7.1.5",
+    "vite-plugin-wasm": "^3.3.0",
+    "vite-plugin-dts": "^4.3.0"
+  },
+  "keywords": [
+    "sgp4",
+    "wasm",
+    "webgpu",
+    "webgl",
+    "satellite",
+    "orbit",
+    "gpu"
+  ],
+  "license": "MIT",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kayhan-Space/sgp4gl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kayhan-Space/sgp4gl/issues"
+  },
+  "homepage": "https://github.com/Kayhan-Space/sgp4gl#readme"
+}

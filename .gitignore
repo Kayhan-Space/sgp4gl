@@ -1,0 +1,28 @@
+# builds
+dist/
+build/
+*.log
+
+# deps
+node_modules/
+
+# editor/OS
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# misc cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.cache/
+.eslintcache
+
+# local demos and server artifacts
+demo/.vite/
+demo/dist/
+
+# wasm-bindgen intermediate (if you generate in-place)
+pkg/*.tsbuildinfo
