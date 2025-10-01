@@ -1,6 +1,6 @@
 {
   "name": "sgp4.gl",
-  "version": "0.1.2-beta",
+  "version": "0.1.3-beta",
   "description": "High-performance SGP4 GPU/WebGPU/WebGL WASM wrapper.",
   "type": "module",
   "main": "./dist/index.cjs",
