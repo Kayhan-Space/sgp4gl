@@ -102,14 +102,10 @@ propagator.unregister_const_set(constSetId);
 
 The optimized methods provide significant performance improvements:
 
-| Method | Memory Usage | Performance | Best For |
-
+| Method            | Memory Usage         | Performance      | Best For                          |
 | ----------------- | -------------------- | ---------------- | --------------------------------- |
-
-| Object-based | ~48 bytes/satellite | Baseline | Simple single-shot propagations |
-
-| Float32Array | ~24 bytes/satellite | 2–5× faster | Batch processing |
-
+| Object-based      | ~48 bytes/satellite  | Baseline         | Simple single-shot propagations   |
+| Float32Array      | ~24 bytes/satellite  | 2–5× faster      | Batch processing                  |
 | **Register-Once** | **Minimal overhead** | **5–10× faster** | **Real-time tracking, animation** |
 
 ### Register-Once Pattern Benefits
