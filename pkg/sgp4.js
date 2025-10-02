@@ -314,7 +314,7 @@ function __wbg_adapter_30(arg0, arg1, arg2) {
     wasm.__wbindgen_export_5(arg0, arg1, addHeapObject(arg2));
 }
 
-function __wbg_adapter_779(arg0, arg1, arg2, arg3) {
+function __wbg_adapter_777(arg0, arg1, arg2, arg3) {
     wasm.__wbindgen_export_6(arg0, arg1, addHeapObject(arg2), addHeapObject(arg3));
 }
 
@@ -369,6 +369,9 @@ export class GpuPropagator {
     }
     /**
      * Check if f64 precision is supported
+     *
+     * Note: WebGPU typically does not support f64, so this will return false in most browsers.
+     * Use f32 methods for WebGPU compatibility.
      * @returns {boolean}
      */
     supports_f64() {
@@ -459,24 +462,6 @@ export class GpuPropagator {
         return takeObject(ret);
     }
     /**
-     * Propagate a batch of satellites and return a pre-allocated Float64Array for high precision
-     *
-     * Returns a Float64Array with length = n_satellites * 6
-     * Data layout: [x1, y1, z1, vx1, vy1, vz1, x2, y2, z2, vx2, vy2, vz2, ...]
-     * Where positions are in km and velocities are in km/s
-     * @param {WasmGpuConsts[]} consts
-     * @param {Float64Array} times
-     * @returns {Promise<Float64Array>}
-     */
-    propagate_batch_f64(consts, times) {
-        const ptr0 = passArrayJsValueToWasm0(consts, wasm.__wbindgen_export_2);
-        const len0 = WASM_VECTOR_LEN;
-        const ptr1 = passArrayF64ToWasm0(times, wasm.__wbindgen_export_2);
-        const len1 = WASM_VECTOR_LEN;
-        const ret = wasm.gpupropagator_propagate_batch_f64(this.__wbg_ptr, ptr0, len0, ptr1, len1);
-        return takeObject(ret);
-    }
-    /**
      * Get performance information
      * @returns {string}
      */
@@ -541,19 +526,6 @@ export class GpuPropagator {
      */
     propagate_registered_f32(id, times) {
         const ret = wasm.gpupropagator_propagate_registered_f32(this.__wbg_ptr, id, addHeapObject(times));
-        return takeObject(ret);
-    }
-    /**
-     * Propagate a registered constant set with Float64Array output (High Precision)
-     *
-     * Uses a pre-registered constant set and propagates with double precision.
-     * Best for high-accuracy long-term predictions.
-     * @param {number} id
-     * @param {Float64Array} times
-     * @returns {Promise<Float64Array>}
-     */
-    propagate_registered_f64(id, times) {
-        const ret = wasm.gpupropagator_propagate_registered_f64(this.__wbg_ptr, id, addHeapObject(times));
         return takeObject(ret);
     }
     /**
@@ -1661,7 +1633,7 @@ function __wbg_get_imports() {
                 const a = state0.a;
                 state0.a = 0;
                 try {
-                    return __wbg_adapter_779(a, state0.b, arg0, arg1);
+                    return __wbg_adapter_777(a, state0.b, arg0, arg1);
                 } finally {
                     state0.a = a;
                 }
@@ -1700,10 +1672,6 @@ function __wbg_get_imports() {
         const ret = new Int8Array(getObject(arg0), arg1 >>> 0, arg2 >>> 0);
         return addHeapObject(ret);
     };
-    imports.wbg.__wbg_newwithbyteoffsetandlength_93c8e0c1a479fa1a = function(arg0, arg1, arg2) {
-        const ret = new Float64Array(getObject(arg0), arg1 >>> 0, arg2 >>> 0);
-        return addHeapObject(ret);
-    };
     imports.wbg.__wbg_newwithbyteoffsetandlength_999332a180064b59 = function(arg0, arg1, arg2) {
         const ret = new Int32Array(getObject(arg0), arg1 >>> 0, arg2 >>> 0);
         return addHeapObject(ret);
@@ -1730,10 +1698,6 @@ function __wbg_get_imports() {
     };
     imports.wbg.__wbg_newwithlength_5a5efe313cfd59f1 = function(arg0) {
         const ret = new Float32Array(arg0 >>> 0);
-        return addHeapObject(ret);
-    };
-    imports.wbg.__wbg_newwithlength_5ebc38e611488614 = function(arg0) {
-        const ret = new Float64Array(arg0 >>> 0);
         return addHeapObject(ret);
     };
     imports.wbg.__wbg_of_2eaf5a02d443ef03 = function(arg0) {
@@ -2305,8 +2269,8 @@ function __wbg_get_imports() {
         const ret = false;
         return ret;
     };
-    imports.wbg.__wbindgen_closure_wrapper1886 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 785, __wbg_adapter_30);
+    imports.wbg.__wbindgen_closure_wrapper1873 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 779, __wbg_adapter_30);
         return addHeapObject(ret);
     };
     imports.wbg.__wbindgen_debug_string = function(arg0, arg1) {

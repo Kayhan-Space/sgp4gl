@@ -13,6 +13,9 @@ export class GpuPropagator {
   static new_for_web(): Promise<GpuPropagator>;
   /**
    * Check if f64 precision is supported
+   * 
+   * Note: WebGPU typically does not support f64, so this will return false in most browsers.
+   * Use f32 methods for WebGPU compatibility.
    */
   supports_f64(): boolean;
   /**
@@ -51,14 +54,6 @@ export class GpuPropagator {
    */
   propagate_batch_f32(consts: WasmGpuConsts[], times: Float64Array): Promise<Float32Array>;
   /**
-   * Propagate a batch of satellites and return a pre-allocated Float64Array for high precision
-   * 
-   * Returns a Float64Array with length = n_satellites * 6
-   * Data layout: [x1, y1, z1, vx1, vy1, vz1, x2, y2, z2, vx2, vy2, vz2, ...]
-   * Where positions are in km and velocities are in km/s
-   */
-  propagate_batch_f64(consts: WasmGpuConsts[], times: Float64Array): Promise<Float64Array>;
-  /**
    * Get performance information
    */
   get_performance_info(): string;
@@ -89,13 +84,6 @@ export class GpuPropagator {
    * Float32Array with layout [x1, y1, z1, vx1, vy1, vz1, x2, y2, z2, ...]
    */
   propagate_registered_f32(id: number, times: Float64Array): Promise<Float32Array>;
-  /**
-   * Propagate a registered constant set with Float64Array output (High Precision)
-   * 
-   * Uses a pre-registered constant set and propagates with double precision.
-   * Best for high-accuracy long-term predictions.
-   */
-  propagate_registered_f64(id: number, times: Float64Array): Promise<Float64Array>;
   /**
    * Create a new GPU propagator (auto-detect backend)
    */
@@ -216,9 +204,7 @@ export interface InitOutput {
   readonly gpupropagator_optimal_batch_size: (a: number) => number;
   readonly gpupropagator_propagate_batch: (a: number, b: number, c: number, d: number, e: number) => number;
   readonly gpupropagator_propagate_batch_f32: (a: number, b: number, c: number, d: number, e: number) => number;
-  readonly gpupropagator_propagate_batch_f64: (a: number, b: number, c: number, d: number, e: number) => number;
   readonly gpupropagator_propagate_registered_f32: (a: number, b: number, c: number) => number;
-  readonly gpupropagator_propagate_registered_f64: (a: number, b: number, c: number) => number;
   readonly gpupropagator_register_const_set: (a: number, b: number, c: number) => number;
   readonly gpupropagator_supports_f64: (a: number) => number;
   readonly gpupropagator_unregister_const_set: (a: number, b: number) => number;
