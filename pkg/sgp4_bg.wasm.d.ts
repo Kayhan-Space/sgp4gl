@@ -1,102 +1,50 @@
+/* tslint:disable */
+/* eslint-disable */
 export const memory: WebAssembly.Memory;
-export const __wbg_wasmelements_free: (a: number, b: number) => void;
-export const wasmelements_from_tle: (
-  a: number,
-  b: number,
-  c: number,
-  d: number,
-  e: number,
-  f: number,
-  g: number
-) => void;
-export const wasmelements_name: (a: number, b: number) => void;
-export const wasmelements_inclination: (a: number) => number;
-export const wasmelements_eccentricity: (a: number) => number;
-export const wasmelements_right_ascension: (a: number) => number;
-export const wasmelements_argument_of_perigee: (a: number) => number;
-export const wasmelements_mean_anomaly: (a: number) => number;
-export const wasmelements_mean_motion: (a: number) => number;
+export const __wbg_gpupropagator_free: (a: number, b: number) => void;
 export const __wbg_wasmconstants_free: (a: number, b: number) => void;
+export const __wbg_wasmelements_free: (a: number, b: number) => void;
+export const __wbg_wasmgpuconsts_free: (a: number, b: number) => void;
+export const __wbg_wasmminutessinceepoch_free: (a: number, b: number) => void;
+export const __wbg_wasmprediction_free: (a: number, b: number) => void;
+export const gpupropagator_get_performance_info: (a: number, b: number) => void;
+export const gpupropagator_get_registered_count: (a: number, b: number) => number;
+export const gpupropagator_list_registered_ids: (a: number, b: number) => void;
+export const gpupropagator_min_effective_batch_size: (a: number) => number;
+export const gpupropagator_new: () => number;
+export const gpupropagator_new_for_web: () => number;
+export const gpupropagator_new_for_web_gl: () => number;
+export const gpupropagator_optimal_batch_size: (a: number) => number;
+export const gpupropagator_propagate_batch: (a: number, b: number, c: number, d: number, e: number) => number;
+export const gpupropagator_propagate_batch_f32: (a: number, b: number, c: number, d: number, e: number) => number;
+export const gpupropagator_propagate_batch_f64: (a: number, b: number, c: number, d: number, e: number) => number;
+export const gpupropagator_propagate_registered_f32: (a: number, b: number, c: number) => number;
+export const gpupropagator_propagate_registered_f64: (a: number, b: number, c: number) => number;
+export const gpupropagator_register_const_set: (a: number, b: number, c: number) => number;
+export const gpupropagator_supports_f64: (a: number) => number;
+export const gpupropagator_unregister_const_set: (a: number, b: number) => number;
 export const wasmconstants_from_elements: (a: number, b: number) => void;
 export const wasmconstants_propagate: (a: number, b: number, c: number) => void;
-export const __wbg_wasmminutessinceepoch_free: (a: number, b: number) => void;
-export const wasmminutessinceepoch_new: (a: number) => number;
+export const wasmelements_argument_of_perigee: (a: number) => number;
+export const wasmelements_eccentricity: (a: number) => number;
+export const wasmelements_from_tle: (a: number, b: number, c: number, d: number, e: number, f: number, g: number) => void;
+export const wasmelements_inclination: (a: number) => number;
+export const wasmelements_mean_anomaly: (a: number) => number;
+export const wasmelements_mean_motion: (a: number) => number;
+export const wasmelements_name: (a: number, b: number) => void;
+export const wasmelements_right_ascension: (a: number) => number;
+export const wasmgpuconsts_from_constants: (a: number) => number;
 export const wasmminutessinceepoch_value: (a: number) => number;
-export const __wbg_wasmprediction_free: (a: number, b: number) => void;
 export const wasmprediction_position: (a: number, b: number) => void;
 export const wasmprediction_velocity: (a: number, b: number) => void;
-export const __wbg_wasmgpuconsts_free: (a: number, b: number) => void;
-export const wasmgpuconsts_from_constants: (a: number) => number;
-export const __wbg_gpupropagator_free: (a: number, b: number) => void;
-export const gpupropagator_new: () => number;
-export const gpupropagator_new_for_web_gl: () => number;
-export const gpupropagator_new_for_web: () => number;
-export const gpupropagator_register_const_set: (
-  a: number,
-  b: number,
-  c: number
-) => number;
-export const gpupropagator_unregister_const_set: (
-  a: number,
-  b: number
-) => number;
-export const gpupropagator_get_registered_count: (
-  a: number,
-  b: number
-) => number;
-export const gpupropagator_list_registered_ids: (a: number, b: number) => void;
-export const gpupropagator_propagate_registered_f32: (
-  a: number,
-  b: number,
-  c: number
-) => number;
-export const gpupropagator_propagate_registered_f64: (
-  a: number,
-  b: number,
-  c: number
-) => number;
-export const gpupropagator_supports_f64: (a: number) => number;
-export const gpupropagator_propagate_batch: (
-  a: number,
-  b: number,
-  c: number,
-  d: number,
-  e: number
-) => number;
-export const gpupropagator_propagate_batch_f32: (
-  a: number,
-  b: number,
-  c: number,
-  d: number,
-  e: number
-) => number;
-export const gpupropagator_propagate_batch_f64: (
-  a: number,
-  b: number,
-  c: number,
-  d: number,
-  e: number
-) => number;
-export const gpupropagator_optimal_batch_size: (a: number) => number;
-export const gpupropagator_min_effective_batch_size: (a: number) => number;
-export const gpupropagator_get_performance_info: (a: number, b: number) => void;
 export const main: () => void;
+export const wasmminutessinceepoch_new: (a: number) => number;
 export const __wbindgen_export_0: (a: number) => void;
 export const __wbindgen_export_1: (a: number, b: number, c: number) => void;
 export const __wbindgen_export_2: (a: number, b: number) => number;
-export const __wbindgen_export_3: (
-  a: number,
-  b: number,
-  c: number,
-  d: number
-) => number;
+export const __wbindgen_export_3: (a: number, b: number, c: number, d: number) => number;
 export const __wbindgen_export_4: WebAssembly.Table;
 export const __wbindgen_add_to_stack_pointer: (a: number) => number;
 export const __wbindgen_export_5: (a: number, b: number, c: number) => void;
-export const __wbindgen_export_6: (
-  a: number,
-  b: number,
-  c: number,
-  d: number
-) => void;
+export const __wbindgen_export_6: (a: number, b: number, c: number, d: number) => void;
 export const __wbindgen_start: () => void;
