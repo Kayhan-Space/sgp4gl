@@ -203,4 +203,3 @@ const velocity = [
 ## Browser Compatibility
 
 - **WebGPU**: Chrome, Edge, Firefox (only on https), Safari (latest iOS)
-- **WebGL**: All modern browsers (fallback)
